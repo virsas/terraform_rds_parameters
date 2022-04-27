@@ -6,7 +6,7 @@ resource "aws_db_parameter_group" "params" {
   name   = var.name
   family = var.family
   
-  dynamic "param" {
+  dynamic "attribute" {
     for_each = [for p in var.params.list: {
       name = p.name
       value = p.value
@@ -14,9 +14,9 @@ resource "aws_db_parameter_group" "params" {
     }]
 
     parameter {
-      name = param.value.name
-      value = param.value.value
-      apply_method = param.value.method
+      name = attribute.value.name
+      value = attribute.value.value
+      apply_method = attribute.value.method
     }
   }
 }
