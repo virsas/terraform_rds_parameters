@@ -16,7 +16,7 @@ variable "aurora-mysql57-params" {
   default = { 
     list = [
       { name = "max_connections", value = "1024", method = "pending-reboot" },
-      { name = "character_set_client", value = "utf8mb4", method = "pending-reboot" }
+      { name = "max_user_connections", value = "512", method = "pending-reboot" }
     ]
   }
 }
