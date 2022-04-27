@@ -8,9 +8,9 @@ resource "aws_db_parameter_group" "params" {
   
   dynamic "param" {
     for_each = [for p in var.params.list: {
-      name = s.name
-      value = s.value
-      method = s.method
+      name = p.name
+      value = p.value
+      method = p.method
     }]
 
     parameter {
