@@ -4,7 +4,7 @@ Terraform module to create rds parameters' group.
 
 ## Dependencies
 
-None 
+None
 
 ## Terraform example
 
@@ -12,8 +12,8 @@ None
 ###################
 # RDS params variable
 ###################
-variable "aurora-mysql57-params" { 
-  default = { 
+variable "aurora-mysql57-params" {
+  default = {
     list = [
       { name = "max_connections", value = "1024", method = "pending-reboot" },
       { name = "max_user_connections", value = "512", method = "pending-reboot" }
@@ -25,7 +25,7 @@ variable "aurora-mysql57-params" {
 # RDS params module
 ###################
 module "rds_aurora57_params" {
-  source = "./modules/rds_aurora_params"
+  source = "github.com/virsas/terraform_rds_parameters"
   name   = "aurora57-params"
   family = "aurora-mysql5.7"
   params = var.aurora-mysql57-params
