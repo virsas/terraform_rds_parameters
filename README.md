@@ -25,7 +25,7 @@ variable "aurora-mysql57-params" {
 # RDS params module
 ###################
 module "rds_aurora57_params" {
-  source = "github.com/virsas/terraform_rds_parameters"
+  source = "git::https://github.com/virsas/terraform_rds_parameters.git?ref=v1.0.0"
   name   = "aurora57-params"
   family = "aurora-mysql5.7"
   params = var.aurora-mysql57-params
